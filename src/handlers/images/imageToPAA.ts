@@ -7,7 +7,7 @@ const response = new Response(wasmCode, {
   headers: { "Content-Type": "application/wasm" },
 });
 
-export const imageToPAA = async (imagePath: string) => {
+export const imageToPAA = async (imagePath: string, outputPath: string) => {
   const aff = new AFF(response);
   await aff.ready;
 
@@ -21,5 +21,5 @@ export const imageToPAA = async (imagePath: string) => {
   );
 
   const bytes = aff.encode(imageData);
-  await Deno.writeFile("test.paa", bytes);
+  await Deno.writeFile(outputPath, bytes);
 };
