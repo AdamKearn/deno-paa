@@ -21,13 +21,13 @@ paa-cli -i "path/to/folder/" [-r]
 ```
 
 # Download
-[Linux (x64)]()
+[Linux (x64)](https://github.com/AdamKearn/paa-cli/releases/latest/download/x86_64-unknown-linux-gnu.tar.gz)
 
-[Windows (x64)]()
+[Windows (x64)](https://github.com/AdamKearn/paa-cli/releases/latest/download/x86_64-pc-windows-msvc.tar.gz)
 
-[MacOS (x64)]()
+[MacOS (x64)](https://github.com/AdamKearn/paa-cli/releases/latest/download/x86_64-apple-darwin.tar.gz)
 
-[MacOS (aarch64)]()
+[MacOS (aarch64)](https://github.com/AdamKearn/paa-cli/releases/latest/download/aarch64-apple-darwin.tar.gz)
 
 # Building form source
 ```
