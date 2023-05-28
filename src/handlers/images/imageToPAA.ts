@@ -7,8 +7,9 @@ const response = new Response(wasmCode, {
   headers: { "Content-Type": "application/wasm" },
 });
 
+const aff = new AFF(response);
+
 export const imageToPAA = async (imagePath: string, outputPath: string) => {
-  const aff = new AFF(response);
   await aff.ready;
 
   const imageBytes = await Deno.readFile(imagePath);
