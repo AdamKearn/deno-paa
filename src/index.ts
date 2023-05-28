@@ -15,7 +15,7 @@ if (pathInfo.isFile) {
   for await (
     const image of walk(args.input, {
       includeDirs: false,
-      maxDepth: 1,
+      maxDepth: args.recursive ? Infinity : 1,
       exts: ["jpg", "png"],
     })
   ) {

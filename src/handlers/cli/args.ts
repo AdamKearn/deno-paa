@@ -2,6 +2,7 @@ import yargs from "https://cdn.deno.land/yargs/versions/yargs-v16.2.1-deno/raw/d
 
 interface Arguments {
   input: string;
+  recursive: boolean;
 }
 
 const args: Arguments = yargs(Deno.args)
@@ -10,6 +11,12 @@ const args: Arguments = yargs(Deno.args)
     type: "string",
     description: "/path/to/image",
     required: true,
+  })
+  .option("recursive", {
+    alias: "r",
+    type: "boolean",
+    description: "Recursively process more than one folder deep",
+    required: false,
   })
   .argv;
 
