@@ -1,11 +1,11 @@
 import yargs from "https://cdn.deno.land/yargs/versions/yargs-v16.2.1-deno/raw/deno.ts";
 
 interface Arguments {
-  image: string;
+  input: string;
 }
 
-const inputArgs: Arguments = yargs(Deno.args)
-  .option("image", {
+const args: Arguments = yargs(Deno.args)
+  .option("input", {
     alias: "i",
     type: "string",
     description: "/path/to/image",
@@ -13,4 +13,4 @@ const inputArgs: Arguments = yargs(Deno.args)
   })
   .argv;
 
-export default inputArgs;
+export default args;
