@@ -4,6 +4,9 @@ import { walk } from "https://deno.land/std@0.188.0/fs/walk.ts";
 import args from "./handlers/cli/args.ts";
 import { imageToPAA } from "./handlers/images/imageToPAA.ts";
 
+import { frontMatter } from "./handlers/cli/frontMatter.ts";
+console.log(frontMatter);
+
 const pathInfo = await Deno.lstat(args.input);
 
 if (pathInfo.isFile) {
