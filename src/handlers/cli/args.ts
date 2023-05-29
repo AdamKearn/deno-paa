@@ -11,18 +11,18 @@ const args: Arguments = yargs(Deno.args)
     .option('input', {
         alias: 'i',
         type: 'string',
-        description: '/path/to/image',
+        description: 'The location of a file or directory',
         required: true,
     })
     .option('recursive', {
         alias: 'r',
         type: 'boolean',
-        description: 'Recursively process more than one folder deep',
+        description: 'Recursively process more than one directory deep',
         required: false,
     })
     .option('convert-paa', {
         type: 'boolean',
-        description: "Convert all PAA's in a folder",
+        description: "Convert all PAA's in a directory",
         required: false,
     })
     .option('silent', {
