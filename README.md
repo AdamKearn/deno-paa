@@ -10,18 +10,38 @@ See the below notes for details on using/building this project.
 
 For a full list of options/flags run `paa-cli --help`.
 
-Convert a single file to a PAA in the current directory.
+## Convert a single file.
+
+This can be used to convert an image to and from PAA format
 
 ```
 paa-cli -i "image.png"
 ```
 
-Convert all files in a single directory.
+## Convert all files in a directory.
 
 Optionally you can also pass in `-r` to convert images in sub-directories.
 
 ```
 paa-cli -i "path/to/folder/" [-r]
+```
+
+## Convert all PAA's in a directory back to PNG.
+
+The `--convert-paa` flag tells `paa-cli` to only target `*.paa` files when searching directory(s).
+
+```
+paa-cli -i "path/to/folder/" [-r] --convert-paa
+```
+
+# Building form source
+
+```
+git clone https://github.com/AdamKearn/paa-cli.git
+
+cd paa-cli
+
+deno run --allow-read --allow-write --allow-env --allow-net .\src\index.ts [args-here]
 ```
 
 # Download
@@ -33,13 +53,3 @@ paa-cli -i "path/to/folder/" [-r]
 [MacOS (x64)](https://github.com/AdamKearn/paa-cli/releases/latest/download/x86_64-apple-darwin.tar.gz)
 
 [MacOS (aarch64)](https://github.com/AdamKearn/paa-cli/releases/latest/download/aarch64-apple-darwin.tar.gz)
-
-# Building form source
-
-```
-git clone https://github.com/AdamKearn/paa-cli.git
-
-cd paa-cli
-
-deno run --allow-read --allow-write --allow-env --allow-net .\src\index.ts [args-here]
-```
