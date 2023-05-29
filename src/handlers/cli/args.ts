@@ -22,7 +22,7 @@ const args: Arguments = yargs(Deno.args)
     })
     .option('convert-paa', {
         type: 'boolean',
-        description: "Convert folder(s) of PAA's to PNG (-r is needed)",
+        description: "Convert all PAA's in a folder",
         required: false,
     })
     .option('silent', {
