@@ -1,6 +1,6 @@
 import { AFF } from "./aff_wasm.ts";
 import { ImageData } from "./image_data.ts";
-import { decode } from "https://deno.land/x/pngs@0.1.1/mod.ts";
+import * as ImageScript from "https://deno.land/x/imagescript@1.2.15/mod.ts";
 import args from "../cli/args.ts";
 
 const wasmCode = await Deno.readFile("./src/handlers/images/grad_aff_paa.wasm");
@@ -15,10 +15,10 @@ export const imageToPAA = async (imagePath: string, outputPath: string) => {
 
   try {
     const imageBytes = await Deno.readFile(imagePath);
-    const image = decode(imageBytes);
+    const image = await ImageScript.decode(imageBytes);
 
     const imageData = new ImageData(
-      new Uint8ClampedArray(image.image.buffer),
+      image.bitmap,
       image.width,
       image.height,
     );

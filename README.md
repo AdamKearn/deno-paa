@@ -35,5 +35,5 @@ git clone https://github.com/AdamKearn/paa-cli.git
 
 cd paa-cli
 
-deno run --allow-read --allow-write --allow-env .\src\index.ts [args-here]
+deno run --allow-read --allow-write --allow-env --allow-net .\src\index.ts [args-here]
 ```
