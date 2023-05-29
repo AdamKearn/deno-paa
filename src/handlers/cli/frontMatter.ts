@@ -7,4 +7,4 @@ export const frontMatter = `
 
   Easily convert images into PAA's from your terminal
        with support for Windows / Linux / MacOS
-`;
+`
