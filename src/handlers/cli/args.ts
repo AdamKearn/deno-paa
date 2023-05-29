@@ -3,6 +3,7 @@ import yargs from 'https://cdn.deno.land/yargs/versions/yargs-v16.2.1-deno/raw/d
 interface Arguments {
     input: string
     recursive: boolean
+    'convert-paa': boolean
     silent: boolean
 }
 
@@ -17,6 +18,11 @@ const args: Arguments = yargs(Deno.args)
         alias: 'r',
         type: 'boolean',
         description: 'Recursively process more than one folder deep',
+        required: false,
+    })
+    .option('convert-paa', {
+        type: 'boolean',
+        description: "Convert folder(s) of PAA's to PNG (-r is needed)",
         required: false,
     })
     .option('silent', {
