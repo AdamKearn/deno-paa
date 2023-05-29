@@ -2,7 +2,7 @@ import { format, parse } from "https://deno.land/std@0.189.0/path/mod.ts";
 import { walk } from "https://deno.land/std@0.188.0/fs/walk.ts";
 
 import args from "./handlers/cli/args.ts";
-import { imageToPAA } from "./handlers/images/imageToPAA.ts";
+import { convertImage } from "./handlers/images/convertImage.ts";
 
 import { frontMatter } from "./handlers/cli/frontMatter.ts";
 console.log(frontMatter);
@@ -10,7 +10,7 @@ console.log(frontMatter);
 const pathInfo = await Deno.lstat(args.input);
 
 if (pathInfo.isFile) {
-  await imageToPAA(
+  await convertImage(
     args.input,
     format({ ...parse(args.input), base: "", ext: ".paa" }),
   );
@@ -22,7 +22,7 @@ if (pathInfo.isFile) {
       exts: ["jpg", "png"],
     })
   ) {
-    await imageToPAA(
+    await convertImage(
       image.path,
       format({ ...parse(image.path), base: "", ext: ".paa" }),
     );

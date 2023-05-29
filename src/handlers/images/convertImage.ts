@@ -10,18 +10,14 @@ const response = new Response(wasmCode, {
 
 const aff = new AFF(response);
 
-export const imageToPAA = async (imagePath: string, outputPath: string) => {
+export const convertImage = async (imagePath: string, outputPath: string) => {
   await aff.ready;
 
   try {
     const imageBytes = await Deno.readFile(imagePath);
     const image = await ImageScript.decode(imageBytes);
 
-    const imageData = new ImageData(
-      image.bitmap,
-      image.width,
-      image.height,
-    );
+    const imageData = new ImageData(image.bitmap, image.width, image.height);
 
     const bytes = aff.encode(imageData);
     await Deno.writeFile(outputPath, bytes);
