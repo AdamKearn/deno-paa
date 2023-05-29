@@ -5,6 +5,6 @@ export const frontMatter = `
 |  __/   / ___ \\   / ___ \\        | |___  | |___   | | 
 |_|     /_/   \\_\\ /_/   \\_\\        \\____| |_____| |___|
 
-  Easily convert images into PAA's from your terminal
+  A CLI tool for converting images to/from PAA format
        with support for Windows / Linux / MacOS
 `

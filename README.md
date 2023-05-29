@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://github.com/AdamKearn/deno-paa/assets/30593259/2bdb3d6f-5849-4936-8efe-baa1621b60d0" />
+  <img src="https://github.com/AdamKearn/paa-cli/assets/30593259/6d6922f4-87ce-4519-a8cb-3c14aa37f2b7" />
 </div>
 
 This tool is built using deno and powered by the [grad_aff_wasm](https://github.com/gruppe-adler/grad_aff_wasm) package made by the amazing devs at [Gruppe Adler](https://github.com/gruppe-adler).
