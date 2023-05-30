@@ -1,3 +1,12 @@
 *.paa
 *.png
+*.jpeg
 *.jpg
+*.jpe
+*.jfif
+*.bmp
+*.tif
+*.tiff
+*.gif
+
+release/

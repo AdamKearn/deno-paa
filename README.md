@@ -6,6 +6,8 @@ This tool is built using deno and powered by the [grad_aff_wasm](https://github.
 
 See the below notes for details on using/building this project.
 
+Supported Formats: `paa, png, jpeg, jpg, jpe, jfif, bmp, tif, tiff, gif`
+
 # Usage
 
 For a full list of options/flags run `paa-cli --help`.
