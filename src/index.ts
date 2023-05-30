@@ -14,7 +14,19 @@ if (pathInfo.isFile) {
     for await (const image of walk(args.input, {
         includeDirs: false,
         maxDepth: args.recursive ? Infinity : 1,
-        exts: args['convert-paa'] ? ['paa'] : ['jpg', 'png'],
+        exts: args['convert-paa']
+            ? ['paa']
+            : [
+                  'png',
+                  'jpeg',
+                  'jpg',
+                  'jpe',
+                  'jfif',
+                  'bmp',
+                  'tif',
+                  'tiff',
+                  'gif',
+              ],
     })) {
         await convertImage(image.path)
     }
