@@ -86,5 +86,17 @@ jobs:
       - build-mac-arch
 
     steps:
-      - name: Download all workflow run artifacts
+      - name: Download all artifacts
         uses: actions/download-artifact@v3
+
+      - name: Show Outputs
+        run: ls -R
+
+      - name: Create release with artifacts
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            x86_64-unknown-linux-gnu
+            x86_64-pc-windows-msvc
+            x86_64-apple-darwin
+            aarch64-apple-darwin
