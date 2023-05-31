@@ -1,3 +1,6 @@
+// This is needed as Deno doesn't seem to have ImageData added yet.
+// There is an issue tracking this feature: https://github.com/denoland/deno/issues/19288
+
 type ColorSpace = 'srgb' | 'display-p3'
 
 export class ImageData {

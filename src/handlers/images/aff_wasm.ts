@@ -1,5 +1,8 @@
 import { ImageData } from "./image_data.ts";
 
+// The bellow code is "glue code" needed to allow the WASM file to function.
+// This is generated when compiling the WASM: https://github.com/gruppe-adler/grad_aff_wasm/
+
 /* eslint-disable camelcase, @typescript-eslint/no-unused-vars */
 const NULL_POINTER = 0;
 
