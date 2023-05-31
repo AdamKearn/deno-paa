@@ -17,11 +17,16 @@ jobs:
       - name: Building for Linux (x86_64)
         run: deno compile --target "x86_64-unknown-linux-gnu" --output "release/paa-cli" --allow-read --allow-write --allow-env ./src/index.ts
 
+      - name: Compress Output
+        uses: montudor/action-zip@v1
+        with:
+          args: zip -qq -r x86_64-unknown-linux-gnu.zip release/paa-cli
+
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
           name: x86_64-unknown-linux-gnu
-          path: release/paa-cli
+          path: x86_64-unknown-linux-gnu.zip
 
   build-windows:
     runs-on: ubuntu-latest
@@ -35,11 +40,16 @@ jobs:
       - name: Building for Windows (x86_64)
         run: deno compile --target "x86_64-pc-windows-msvc" --output "release/paa-cli" --allow-read --allow-write --allow-env ./src/index.ts
 
+      - name: Compress Output
+        uses: montudor/action-zip@v1
+        with:
+          args: zip -qq -r x86_64-pc-windows-msvc.zip release/paa-cli.exe
+
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
           name: x86_64-pc-windows-msvc
-          path: release/paa-cli.exe
+          path: x86_64-pc-windows-msvc.zip
 
   build-mac-intel:
     runs-on: ubuntu-latest
@@ -53,11 +63,16 @@ jobs:
       - name: Building for MacOS (x86_64)
         run: deno compile --target "x86_64-apple-darwin" --output "release/paa-cli" --allow-read --allow-write --allow-env ./src/index.ts
 
+      - name: Compress Output
+        uses: montudor/action-zip@v1
+        with:
+          args: zip -qq -r x86_64-apple-darwin.zip release/paa-cli
+
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
           name: x86_64-apple-darwin
-          path: release/paa-cli
+          path: x86_64-apple-darwin.zip
 
   build-mac-arch:
     runs-on: ubuntu-latest
@@ -70,6 +85,11 @@ jobs:
 
       - name: Building for MacOS (aarch64)
         run: deno compile --target "aarch64-apple-darwin" --output "release/paa-cli" --allow-read --allow-write --allow-env ./src/index.ts
+
+      - name: Compress Output
+        uses: montudor/action-zip@v1
+        with:
+          args: zip -qq -r aarch64-apple-darwin.zip release/paa-cli
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
@@ -96,7 +116,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            x86_64-unknown-linux-gnu
-            x86_64-pc-windows-msvc
-            x86_64-apple-darwin
-            aarch64-apple-darwin
+            x86_64-unknown-linux-gnu/x86_64-unknown-linux-gnu.zip
+            x86_64-pc-windows-msvc/x86_64-pc-windows-msvc.zip
+            x86_64-apple-darwin/x86_64-apple-darwin.zip
+            aarch64-apple-darwin/aarch64-apple-darwin.zip
