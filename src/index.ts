@@ -4,7 +4,7 @@ import args from './handlers/cli/args.ts'
 import { convertImage } from './handlers/images/convertImage.ts'
 
 import { frontMatter } from './handlers/cli/frontMatter.ts'
-console.log(frontMatter)
+frontMatter()
 
 const pathInfo = await Deno.lstat(args.input)
 
