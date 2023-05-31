@@ -1,6 +1,8 @@
 name: Build PAA CLI
 on:
-  workflow_dispatch:
+  push:
+    tags:
+      - 'v*.*.*'
 
 jobs:
   build-linux:
