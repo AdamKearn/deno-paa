@@ -5,7 +5,12 @@ import args from '../cli/args.ts'
 import encode from 'npm:image-encode'
 import decode from 'npm:image-decode'
 
-const wasmCode = await Deno.readFile('./src/handlers/images/grad_aff_paa.wasm')
+// https://github.com/denoland/deno/pull/5135
+// Deno doesn't let you import the WASM file any more so having to pull from the internet.
+const wasmCode = await fetch(
+    'https://raw.githubusercontent.com/adamkearn/paa-cli/master/src/handlers/images/grad_aff_paa.wasm'
+).then((res) => res.arrayBuffer())
+
 const response = new Response(wasmCode, {
     headers: { 'Content-Type': 'application/wasm' },
 })
