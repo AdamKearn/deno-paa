@@ -4,6 +4,10 @@ import { parse, format } from 'https://deno.land/std@0.189.0/path/mod.ts'
 import args from '../cli/args.ts'
 import encode from 'npm:image-encode'
 import decode from 'npm:image-decode'
+import {
+    prevLine,
+    clearLine,
+} from 'https://deno.land/x/cursor@v2.2.0/cursor.ts'
 
 // https://github.com/denoland/deno/pull/5135
 // Deno doesn't let you import the WASM file any more so having to pull from the internet.
@@ -18,6 +22,8 @@ const response = new Response(wasmCode, {
 const aff = new AFF(response)
 
 export const convertImage = async (imagePath: string) => {
+    if (!args.silent) console.log('🧇 Processing:', imagePath)
+
     await aff.ready
 
     try {
@@ -45,9 +51,15 @@ export const convertImage = async (imagePath: string) => {
 
         await Deno.writeFile(outputPath, bytes)
 
-        if (!args.silent) console.log('✅ converted:', imagePath)
+        if (!args.silent) {
+            prevLine()
+            clearLine()
+            console.log('✅ Converted: ', imagePath)
+        }
     } catch (error) {
         if (!args.silent) {
+            prevLine()
+            clearLine()
             console.log(
                 '❌ failed to convert:',
                 imagePath,
