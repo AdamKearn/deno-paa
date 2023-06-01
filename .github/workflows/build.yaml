@@ -25,7 +25,6 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: x86_64-unknown-linux-gnu
           path: x86_64-unknown-linux-gnu.zip
 
   build-windows:
@@ -48,7 +47,6 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: x86_64-pc-windows-msvc
           path: x86_64-pc-windows-msvc.zip
 
   build-mac-intel:
@@ -71,7 +69,6 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: x86_64-apple-darwin
           path: x86_64-apple-darwin.zip
 
   build-mac-arch:
@@ -94,7 +91,6 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: aarch64-apple-darwin
           path: aarch64-apple-darwin.zip
 
   create-release:
@@ -116,7 +112,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            x86_64-unknown-linux-gnu.zip
-            x86_64-pc-windows-msvc.zip
-            x86_64-apple-darwin.zip
-            aarch64-apple-darwin.zip
+            ./artifact/x86_64-unknown-linux-gnu.zip
+            ./artifact/x86_64-pc-windows-msvc.zip
+            ./artifact/x86_64-apple-darwin.zip
+            ./artifact/aarch64-apple-darwin.zip
